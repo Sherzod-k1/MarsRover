@@ -1,6 +1,6 @@
 package de.szut;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -9,12 +9,4 @@ import org.junit.Test;
  */
 public class RoverTest
 {
-    /**
-     * Rigorous Test :-)
-     */
-   @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
 }
