@@ -7,6 +7,7 @@ public class Grid {
     private final int width;
     private final int height;
     private final Cell[][] cells;
+    private Coordinates coordinates;
 
     public Grid(int width, int height) {
         this.width = width;
@@ -37,6 +38,15 @@ public class Grid {
     public boolean isCellOccupied(int x, int y) {
         Cell cell = getCell(x, y);
         return cell != null  && cell.hasProperties();
+    }
+    public boolean isValidCoordinate(Coordinates coordinate) {
+        if (coordinate.getX() < 0 || coordinate.getX() >= width) {
+            return false;
+        }
+        if (coordinate.getY() < 0 || coordinate.getY() >= height) {
+            return false;
+        }
+        return true;
     }
 
     public void setCellOccupied(int x, int y, boolean occupied) {

@@ -3,6 +3,7 @@ package de.szut;
 public class Rover {
 private Coordinates coordinates;
 private Direction direction;
+private Grid grid;
     public Rover(Coordinates coordinates, Direction direction, Grid grid) {
         this.coordinates = coordinates;
         this.direction = direction;
