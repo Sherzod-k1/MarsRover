@@ -39,4 +39,7 @@ public class Coordinates {
         x += dx;
         y += dy;
     }
+    public String toString() {
+        return "(" + x + "," + y +"," + z + ")";
+    }
 }
