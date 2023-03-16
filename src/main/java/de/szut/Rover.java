@@ -19,13 +19,6 @@ private Grid grid;
         move(newCoordinates);
     }
 
-    public void turnLeft() {
-        direction = direction.turnLeft();
-    }
-
-    public void turnRight() {
-        direction = direction.turnRight();
-    }
 
     public void moveUp() {
         Coordinates newCoordinates = new Coordinates(coordinates.getX(), coordinates.getY(), coordinates.getZ() + 1);
@@ -62,16 +55,8 @@ private Grid grid;
         if (grid.isValidCoordinate(newCoordinates)) {
             coordinates = newCoordinates;
         } else {
-            System.out.println("Cannot move to " + newCoordinates + " - obstacle detected!");
+            System.out.println("Cannot move to " + newCoordinates );
         }
-    }
-
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
-
-    public Direction getDirection() {
-        return direction;
     }
 
 }
