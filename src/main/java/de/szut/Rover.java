@@ -29,6 +29,13 @@ private Grid grid;
         Coordinates newCoordinates = new Coordinates(coordinates.getX(), coordinates.getY(), coordinates.getZ() - 1);
         move(newCoordinates);
     }
+    public void turnLeft() {
+        direction = direction.turnLeft();
+    }
+
+    public void turnRight() {
+        direction = direction.turnRight();
+    }
 
     private Coordinates getNewCoordinates(int distance) {
         int newX = coordinates.getX();
@@ -50,13 +57,15 @@ private Grid grid;
         }
         return new Coordinates(newX, newY, newZ);
     }
+    public String getPosition() {
+        return coordinates.toString() + " " + direction.toString();
+    }
 
     private void move(Coordinates newCoordinates) {
-        if (grid.isValidCoordinate(newCoordinates)) {
-            coordinates = newCoordinates;
-        } else {
-            System.out.println("Cannot move to " + newCoordinates );
+        if (!grid.isValidCoordinate(newCoordinates)) {
+            throw new IllegalArgumentException("Cannot move to " + newCoordinates);
         }
+        coordinates = newCoordinates;
     }
 
 }

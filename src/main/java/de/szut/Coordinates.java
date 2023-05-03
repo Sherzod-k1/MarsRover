@@ -45,9 +45,10 @@ public class Coordinates {
 
 
     // move the Rover and set the new coordinates
-    public void move(int dx, int dy) {
+    public void move(int dx, int dy, int dz) {
         x += dx;
         y += dy;
+        z +=dz;
     }
 
     // convert the coordinates to String
