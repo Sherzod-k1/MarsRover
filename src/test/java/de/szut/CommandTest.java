@@ -7,12 +7,16 @@ public class CommandTest {
     public void testMoveForwardCommand() {
         Grid grid = new Grid(10, 10);
         Rover rover = new Rover(new Coordinates(0, 0, 0), Direction.NORTH, grid);
-       assertEquals("(0,1,0) NORTH", rover.getPosition());
+        Command command = new Command.MoveForwardCommand();
+        command.execute(rover);
+        assertEquals("(0,1,0) NORTH", rover.getPosition());
     }
-  @Test
+    @Test
     public void testMoveBackwardCommand() {
         Grid grid = new Grid(10, 10);
         Rover rover = new Rover(new Coordinates(0, 1, 0), Direction.NORTH, grid);
+        Command command = new Command.MoveBackwardCommand();
+        command.execute(rover);
         assertEquals("(0,0,0) NORTH", rover.getPosition());
     }
 
@@ -20,6 +24,8 @@ public class CommandTest {
     public void testTurnLeftCommand() {
         Grid grid = new Grid(10, 10);
         Rover rover = new Rover(new Coordinates(0, 0, 0), Direction.NORTH, grid);
+        Command command = new Command.TurnLeftCommand();
+        command.execute(rover);
         assertEquals("(0,0,0) WEST", rover.getPosition());
     }
 
@@ -27,6 +33,8 @@ public class CommandTest {
     public void testTurnRightCommand() {
         Grid grid = new Grid(10, 10);
         Rover rover = new Rover(new Coordinates(0, 0, 0), Direction.NORTH, grid);
+        Command command = new Command.TurnRightCommand();
+        command.execute(rover);
         assertEquals("(0,0,0) EAST", rover.getPosition());
     }
 
@@ -34,6 +42,8 @@ public class CommandTest {
     public void testMoveUpCommand() {
         Grid grid = new Grid(10, 10);
         Rover rover = new Rover(new Coordinates(0, 0, 0), Direction.NORTH, grid);
+        Command command = new Command.MoveUpCommand();
+        command.execute(rover);
         assertEquals("(0,0,1) NORTH", rover.getPosition());
     }
 
@@ -41,6 +51,8 @@ public class CommandTest {
     public void testMoveDownCommand() {
         Grid grid = new Grid(10, 10);
         Rover rover = new Rover(new Coordinates(0, 0, 1), Direction.NORTH, grid);
+        Command command = new Command.MoveDownCommand();
+        command.execute(rover);
         assertEquals("(0,0,0) NORTH", rover.getPosition());
     }
 }
