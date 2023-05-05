@@ -1,16 +1,17 @@
 package de.szut;
 
-
 public class Grid {
 
     private final int width;
     private final int height;
-    private final boolean[][] occupiedCells;
+    private final int depth;
+    private final boolean[][][] occupiedCells;
 
-    public Grid(int width, int height) {
+    public Grid(int width, int height, int depth) {
         this.width = width;
         this.height = height;
-        this.occupiedCells = new boolean[height][width];
+        this.depth = depth;
+        this.occupiedCells = new boolean[depth][height][width];
     }
 
     public int getWidth() {
@@ -21,11 +22,15 @@ public class Grid {
         return height;
     }
 
-    public boolean isCellOccupied(int x, int y) {
-        if (x < 0 || x >= width || y < 0 || y >= height) {
+    public int getDepth() {
+        return depth;
+    }
+
+    public boolean isCellOccupied(int x, int y, int z) {
+        if (x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= depth) {
             return false;
         }
-        return occupiedCells[y][x];
+        return occupiedCells[z][y][x];
     }
 
     public boolean isValidCoordinate(Coordinates coordinate) {
@@ -35,13 +40,16 @@ public class Grid {
         if (coordinate.getY() < 0 || coordinate.getY() >= height) {
             return false;
         }
+        if (coordinate.getZ() < 0 || coordinate.getZ() >= depth) {
+            return false;
+        }
         return true;
     }
 
-    public void setCellOccupied(int x, int y, boolean occupied) {
-        if (x < 0 || x >= width || y < 0 || y >= height) {
+    public void setCellOccupied(int x, int y, int z, boolean occupied) {
+        if (x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= depth) {
             return;
         }
-        occupiedCells[y][x] = occupied;
+        occupiedCells[z][y][x] = occupied;
     }
 }
