@@ -6,12 +6,14 @@ public class Grid {
     private final int height;
     private final int depth;
     private final boolean[][][] occupiedCells;
+    private final Obstacle[][][] obstacles;
 
     public Grid(int width, int height, int depth) {
         this.width = width;
         this.height = height;
         this.depth = depth;
         this.occupiedCells = new boolean[depth][height][width];
+        this.obstacles = new Obstacle[depth][height][width];
     }
 
     public int getWidth() {
@@ -43,7 +45,8 @@ public class Grid {
         if (coordinate.getZ() < 0 || coordinate.getZ() >= depth) {
             return false;
         }
-        return true;
+        return obstacles[coordinate.getZ()][coordinate.getY()][coordinate.getX()] == null;
+
     }
 
     public void setCellOccupied(int x, int y, int z, boolean occupied) {
@@ -51,5 +54,11 @@ public class Grid {
             return;
         }
         occupiedCells[z][y][x] = occupied;
+    }
+    public Obstacle getObstacle(int x, int y, int z) {
+        if (x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= depth) {
+            return null;
+        }
+        return obstacles[z][y][x];
     }
 }

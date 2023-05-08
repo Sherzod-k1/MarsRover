@@ -2,6 +2,8 @@ package de.szut;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import org.junit.Before;
@@ -84,6 +86,7 @@ public class RoverTest
         assertEquals("(0,0,0) NORTH", rover.getPosition());
 
     }
+
 
 
 
